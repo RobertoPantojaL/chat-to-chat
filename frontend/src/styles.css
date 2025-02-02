@@ -1,0 +1,320 @@
+:root {
+    --bg-color: #f0f2f5;
+    --text-color: #1c1e21;
+    --primary-color: #1877f2;
+    --secondary-color: #42b72a;
+    --border-color: #ddd;
+    --message-bg: #e4e6eb;
+    --message-bg-self: #0084ff;
+    --message-text-self: #ffffff;
+  }
+  
+  .dark-mode {
+    --bg-color: #18191a;
+    --text-color: #e4e6eb;
+    --primary-color: #2d88ff;
+    --secondary-color: #5aa75a;
+    --border-color: #3e4042;
+    --message-bg: #3e4042;
+    --message-bg-self: #0084ff;
+    --message-text-self: #ffffff;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
+    max-height: 100vh;
+    /* Ajusta la altura máxima según tus necesidades el fondo y que cubra en modo */
+    background-size: cover;
+  }
+  
+  .container {
+    display: flex;
+    height: 100vh;
+  }
+  .title {
+    font-size: 90px;
+    font-weight: bold;
+    color: var(--primary-color);
+    text-align: center; 
+    margin-top: 20px;
+    
+    margin-bottom: 20px;
+  }
+  .logo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 300px;
+    animation: fadeIn 0.5s ease;
+    
+  }
+  /* Estilos para el formulario de login/registro */
+  .auth-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    animation: fadeIn 0.5s ease;
+   
+   
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  .auth-form input {
+    width: 300px;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+  }
+  
+  .auth-form button {
+    width: 300px;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .auth-form button.register {
+    background-color: var(--primary-color);
+  }
+  
+  .auth-form button.login {
+    background-color: var(--secondary-color);
+  }
+  
+  /* Estilos para la lista de salas */
+  .rooms {
+    width: 25%;
+    background-color: var(--bg-color);
+    padding: 20px;
+    border-right: 1px solid var(--border-color);
+  }
+  
+  .rooms h2 {
+    margin-bottom: 20px;
+  }
+  
+  .rooms ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .rooms li {
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .rooms li:hover {
+    background-color: var(--message-bg);
+  }
+  
+  .rooms li.active {
+    background-color: var(--primary-color);
+    color: white;
+  }
+  
+  /* Estilos para el área de chat */
+  .chat-area {
+    width: 75%;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .messages {
+    flex-grow: 1;
+    padding: 20px;
+    overflow-y: auto;
+  }
+  
+  .message {
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 18px;
+    max-width: 70%;
+    animation: messageAppear 0.3s ease;
+  }
+  
+  @keyframes messageAppear {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .message.self {
+    align-self: flex-end;
+    background-color: var(--message-bg-self);
+    color: var(--message-text-self);
+  }
+  
+  .message.other {
+    align-self: flex-start;
+    background-color: var(--message-bg);
+  }
+  
+  .message strong {
+    margin-right: 10px;
+  }
+  
+  .message img {
+    max-width: 200px;
+    max-height: 200px;
+    border-radius: 4px;
+  }
+  
+  /* Estilos para el formulario de envío de mensajes */
+  .message-form {
+    display: flex;
+    padding: 20px;
+    border-top: 1px solid var(--border-color);
+  }
+  
+  .message-form input[type="text"] {
+    flex-grow: 1;
+    padding: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    margin-right: 10px;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+  }
+  
+  .message-form button {
+    padding: 10px 20px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .message-form button:hover {
+    background-color: var(--secondary-color);
+  }
+  
+  .emoji-picker-button,
+  .file-label,
+  .theme-toggle {
+    padding: 10px;
+    background-color: var(--message-bg);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    margin-right: 10px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .emoji-picker-button:hover,
+  .file-label:hover,
+  .theme-toggle:hover {
+    background-color: var(--border-color);
+  }
+  
+  .file-input {
+    display: none;
+  }
+  
+  .emoji-picker {
+    position: absolute;
+    bottom: 80px;
+    right: 20px;
+  }
+  
+  .logout-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 10px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .logout-button:hover {
+    background-color: var(--secondary-color);
+  }
+  .add-room-button {
+    padding: 10px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .add-room-button:hover {
+    background-color: var(--secondary-color);
+  }
+  .new-room-form {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+  }
+  
+  .new-room-form input[type="text"] {
+    flex-grow: 1;
+    padding: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    margin-right: 10px;
+  }
+  
+  .new-room-form .submit-room-button {
+    padding: 10px;
+    background-color: var(--secondary-color);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .new-room-form .submit-room-button:hover {
+    background-color: var(--primary-color);
+  }
+  .new-room-form .cancel-room-button {
+    padding: 10px;
+    background-color: #ff0000;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .new-room-form .cancel-room-button:hover {
+    background-color: var(--primary-color);
+  }
